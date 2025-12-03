@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCUPAMOS TERAPIA RP</title>
+    <style>
+        /* Estilos mejorados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Encabezado con logo al lado del título */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            background: rgba(10, 10, 30, 0.9);
+            border-bottom: 3px solid #00ffff;
+            position: relative;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            margin-right: 20px;
+        }
+        
+        h1 {
+            color: #00ffff;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7),
+                         0 0 20px rgba(0, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+        
+        /* "Aquí creamos nuestro arte" - Esquina derecha arriba */
+        .arte-esquina {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ff6b9d;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.7);
+            padding: 10px 20px;
+            background: rgba(255, 107, 157, 0.1);
+            border-radius: 20px;
+            border: 2px solid #ff6b9d;
+        }
+        
+        /* Navegación */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 25px;
+            background: rgba(20, 20, 40, 0.8);
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #00ffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+        
+        /* Contenedor principal con dos columnas */
+        .contenedor-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Columna izquierda - Video */
+        .columna-video {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            height: fit-content;
+        }
+        
+        .video-explicacion {
+            position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid #00ff88;
+        }
+        
+        .video-explicacion iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .texto-video {
+            margin-top: 20px;
+            color: #00ff88;
+            font-size: 1.2em;
+        }
+        
+        /* Columna derecha - Imágenes */
+        .columna-imagenes {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #ff6b9d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .grid-imagenes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .imagen-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #ff6b9d;
+            height: 200px;
+        }
+        
+        .imagen-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .imagen-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Biografía */
+        #bio {
+            background: rgba(10, 10, 30, 0.95);
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 1200px;
+            margin: 50px auto;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        h2, h3, h4 {
+            color: #00ffff;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        h3 {
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        h4 {
+            font-weight: normal;
+            font-size: 1.1em;
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Destacado de May */
+        .may-destacado {
+            background: rgba(255, 107, 157, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #ff6b9d;
+        }
+        
+        /* SECCIÓN DE CONTACTO */
+        .seccion-contacto {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(15, 15, 35, 0.95);
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+        
+        .form-titulo {
+            color: #00ffff;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .formulario-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .input-group label {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #ff6b9d;
+            box-shadow: 0 0 15px rgba(255, 107, 157, 0.5);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"] {
+            accent-color: #00ffff;
+        }
+        
+        .radio-option span {
+            color: #e0e0ff;
+        }
+        
+        .btn-enviar {
+            background: linear-gradient(45deg, #00ffff, #00ff88);
+            color: #0f0f23;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-enviar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.4);
+        }
+        
+        .mensaje-exito {
+            display: none;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            color: #00ff88;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            animation: aparecer 0.5s ease;
+        }
+        
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(10, 10, 30, 0.9);
+            margin-top: 60px;
+            border-top: 2px solid #00ffff;
+        }
+        
+        .discord-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #5865F2, #7289da);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .discord-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contenedor-principal {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .grid-imagenes {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .arte-esquina {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 20px auto;
+                display: block;
+                width: fit-content;
+            }
+            
+            .grid-imagenes {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+            }
+            
+            #bio, .seccion-contacto {
+                padding: 25px;
+                margin: 25px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con logo al lado del título -->
+    <header class="header-container">
+        <img src="logotipo.avif" class="logo">
+        <h1>OCUPAMOS TERAPIA RP</h1>
+        <div class="arte-esquina">🎨 Aquí creamos nuestro arte 🎭</div>
+    </header>
+    
+    <!-- Navegación -->
+    <div class="nav-links">
+        <a href="#bio">🌟 Nuestra esencia</a>
+        <a href="https://discord.gg/7rdWp3VG" target="_blank">
+            💫 Únete a esta locura
+        </a>
+        <a href="#galeria">🖼️ Donde Roleamos</a>
+        <a href="#contacto">📨 Contacto/Reportes</a>
+    </div>
+    
+    <!-- Contenedor principal: Video (izquierda) + Imágenes (derecha) -->
+    <div class="contenedor-principal">
+        <!-- Columna izquierda - Video explicación -->
+        <div class="columna-video">
+            <h2 style="color: #00ff88;">📹 Video Explicación</h2>
+            <div class="video-explicacion">
+                <!-- ESPACIO PARA TU VIDEO -->
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #111; color: #00ff88;">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 3em; margin-bottom: 20px;"></div>
+                        
+                        <p style="font-size: 0.9em; margin-top: 10px; color: #888;">
+                            <iframe width="1000" height="1000" src="https://www.youtube.com/embed/ULT5VH3i7AI?si=2I-MjIOSvbp7UDni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="texto-video">
+                Mira nuestro video explicativo para entender mejor 
+                cómo funciona nuestra comunidad y qué nos hace especiales.
+            </p>
+        </div>
+        
+        <!-- Columna derecha - 3 imágenes -->
+        <div class="columna-imagenes" id="galeria">
+            <h2 style="color: #ff6b9d;">🖼️ Donde Roleamos</h2>
+            <div class="grid-imagenes">
+                <!-- Imagen 1 -->
+                <div class="imagen-item">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="castillo">
+                    <div style="position: absolute; bottom: 0; background: rgba(0,0,0,0.7); color: white; width: 100%; padding: 10px; text-align: center;">
+                    Castillo
+                    </div>
+                </div>
+                
+                <!-- Imagen 2 -->
+                <div class="imagen-item">
+                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Escena romántica">
+                    <div style="position: absolute; bottom: 0; background: rgba(0,0,0,0.7); color: white; width: 100%; padding: 10px; text-align: center;">
+                        Casa
+                    </div>
+                </div>
+                
+                <!-- Imagen 3 -->
+                <div class="imagen-item">
+                    <img src="proximamente.webp" 
+                         alt="Acción y aventura">
+                    <div style="position: absolute; bottom: 0; background: rgba(0,0,0,0.7); color: white; width: 100%; padding: 10px; text-align: center;">
+                        Restaurante 
+                    </div>
+                </div>
+            </div>
+            <p style="color: #ff6b9d; text-align: center; margin-top: 20px;">
+                
+            </p>
+        </div>
+    </div>
+  
+    
+    <!-- Biografía/Filosofía -->
+    <div id="bio">
+        <h2>✨ Nuestra Filosofía ✨</h2>
+        
+        <h4>
+            Somos el Santuario Creativo donde los géneros se entrelazan y las emociones cobran vida. 
+            Un universo RP único donde el drama desgarrador, el romance apasionado y la acción 
+            trepidante convergen en narrativas épicas. Aquí, cada personaje tiene profundidad 
+            psicológica, cada historia tiene consecuencias reales y cada escena se construye con 
+            pasión artística.
+        </h4>
+        
+        <h4>
+            Nuestra esencia: Un ecosistema narrativo donde lo romántico puede volverse dramático 
+            en un instante, donde la acción sirve al desarrollo del personaje, y donde el suspenso 
+            mantiene el corazón latiendo fuerte. No somos un simple servidor de rol: somos un 
+            taller literario vivo, un espacio donde las almas creativas encuentran su voz y donde 
+            las fronteras entre géneros se desvanecen para dar paso a la auténtica narrativa humana.
+        </h4>
+        
+        <div class="may-destacado">
+            <h3>🌟 En el corazón de este multiverso brilla May 🌟</h3>
+            <h4>
+                Nuestra jefa y faro guía. May no es simplemente una administradora; es el alma 
+                mater que teje con hilos de amabilidad pura y simpatía genuina la red que nos 
+                sostiene. Con una sonrisa que desarma tensiones y palabras que sanan inseguridades, 
+                ha cultivado un ambiente donde la creatividad florece sin miedo. Su liderazgo es 
+                silencioso pero poderoso: escucha cada idea con atención reverente, celebra cada 
+                logro como propio y transforma conflictos en oportunidades de crecimiento. Bajo su 
+                mirada comprensiva, los novatos encuentran confianza y los veteranos redescubren 
+                la magia del rol play.
+            </h4>
+        </div>
+    </div>
+    
+    <!-- SECCIÓN DE CONTACTO/FORMULARIO -->
+    <div class="seccion-contacto" id="contacto">
+        <h2 class="form-titulo">📬 Envíanos tu Mensaje</h2>
+        
+        <!-- 
+        REEMPLAZA "YOUR_FORM_ID" CON TU ID REAL DE FORMSPREE
+        1. Ve a: https://formspree.io
+        2. Regístrate (gratis)
+        3. Crea un nuevo formulario
+        4. Copia tu ID único
+        5. Pégalo aquí abajo en el action
+        -->
+        <form class="formulario-contacto" 
+              action="https://formspree.io/f/xldqnkpq" 
+              method="POST"
+              id="contactForm">
+            
+            <div class="input-group">
+                <label for="nombre">Tu Nombre o Alias:</label>
+                <input type="text" 
+                       id="nombre" 
+                       name="nombre" 
+                       placeholder="Ej: AlexRP" 
+                       required>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Tu Email (para responderte):</label>
+                <input type="email" 
+                       id="email" 
+                       name="email" 
+                       placeholder="tucorreo@ejemplo.com" 
+                       required>
+            </div>
+            
+            <div class="input-group">
+                <label>Tipo de Mensaje:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" 
+                               name="tipo" 
+                               value="bug" 
+                               checked>
+                        <span>🐛 Reporte de Bug/Error</span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" 
+                               name="tipo" 
+                               value="idea">
+                        <span>💡 Idea para RP</span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" 
+                               name="tipo" 
+                               value="sugerencia">
+                        <span>✨ Sugerencia/Feedback</span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" 
+                               name="tipo" 
+                               value="otro">
+                        <span>📝 Otro tipo de mensaje</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="asunto">Asunto:</label>
+                <input type="text" 
+                       id="asunto" 
+                       name="asunto" 
+                       placeholder="Ej: No me deja ver el video" 
+                       required>
+            </div>
+            
+            <div class="input-group">
+                <label for="mensaje">Tu Mensaje:</label>
+                <textarea id="mensaje" 
+                          name="mensaje" 
+                          rows="6" 
+                          placeholder="Describe tu idea, bug o sugerencia con detalle..." 
+                          required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-enviar">
+                📤 Enviar Mensaje al Desarrollador
+            </button>
+            
+            <div class="mensaje-exito" id="mensajeExito">
+                ¡Mensaje enviado con éxito! 🎉<br>
+                May te responderá pronto a tu email.
+            </div>
+        </form>
+    </div>
+    
+    <!-- Footer con botón Discord -->
+    <footer>
+        <h3 style="color: #00ffff; margin-bottom: 20px;">¿Listo para unirte a la aventura?</h3>
+        <a href="https://discord.gg/7rdWp3VG" 
+           class="discord-btn" 
+           target="_blank">
+            🚀 Únete a nuestro Discord
+        </a>
+        <p style="margin-top: 30px; color: #888;">
+            © 2026 Ocupamos Terapia RP - creada por el fascista y machista de miso
+        </p>
+        <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+            ¿Problemas técnicos o ideas brillantes? Usa nuestro <a href="#contacto" style="color: #00ffff;">formulario de contacto</a>
+        </p>
+    </footer>
+    
+    <script>
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Mostrar mensaje de éxito inmediatamente
+            document.getElementById('mensajeExito').style.display = 'block';
+            
+            // Desplazar suavemente al mensaje de éxito
+            document.getElementById('mensajeExito').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // El formulario se enviará normalmente a Formspree
+            // Formspree redirigirá a una página de confirmación
+        });
+        
+        // Efecto suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
